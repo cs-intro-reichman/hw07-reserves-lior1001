@@ -3,6 +3,8 @@ public class SpellChecker {
 
 
 	public static void main(String[] args) {
+
+		//System.out.println(levenshtein("spell","SPELL"));
 		String word = args[0];
 		int threshold = Integer.parseInt(args[1]);
 		String[] dictionary = readDictionary("dictionary.txt");
