@@ -17,23 +17,23 @@ public class SpellChecker {
 
 	public static int levenshtein(String word1, String word2) {
 		int distance = 0;
-		word1 = word1.toLowerCase();
-		word2 = word2.toLowerCase();
+		String strLow1 = word1.toLowerCase();
+		String strLow2 = word2.toLowerCase();
 		//if |a| = 0
-		if(word1.length() == 0) {
-			distance = word2.length();
+		if(strLow1.length() == 0) {
+			distance = strLow2.length();
 		}
 		//if |b| = 0
-		else if (word2.length() == 0) {
-			distance = word1.length();
+		else if (strLow2.length() == 0) {
+			distance = strLow1.length();
 		}
 		//if head(a) = head(b)
-		else if(word1.charAt(0) == word2.charAt(0)) {
-			distance = levenshtein(tail(word1), tail(word2));
+		else if(strLow1.charAt(0) == strLow2.charAt(0)) {
+			distance = levenshtein(tail(strLow1), tail(strLow2));
 		}
 		//otherwise
 		else {
-			distance = 1 + (Math.min(levenshtein(tail(word1), word2), Math.min(levenshtein(word1, tail(word2)), levenshtein(tail(word1), tail(word2)))));
+			distance = 1 + (Math.min(levenshtein(tail(strLow1), strLow2), Math.min(levenshtein(strLow1, tail(strLow2)), levenshtein(tail(strLow1), tail(strLow2)))));
 		}
 		return distance;
 	}
