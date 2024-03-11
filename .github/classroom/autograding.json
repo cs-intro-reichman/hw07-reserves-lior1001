@@ -52,7 +52,7 @@
       },
       {
         "name": "LevenshteinTester - (SPELL, spell)",
-        "setup": "javac LevenshteinTester.java",
+        "setup": "javac LevenshteinTester.java SpellChecker.java",
         "run": "java LevenshteinTester SPELL spell",
         "input": "",
         "output": "Levenshtein Distance between SPELL and spell: 0",
