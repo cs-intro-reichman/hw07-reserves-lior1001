@@ -16,7 +16,6 @@ public class SpellChecker {
 	}
 
 	public static int levenshtein(String word1, String word2) {
-		//int distance = 0;
 		String strLow1 = word1.toLowerCase();
 		String strLow2 = word2.toLowerCase();
 		//if |a| = 0
@@ -24,7 +23,7 @@ public class SpellChecker {
 			return strLow2.length();
 		}
 		//if |b| = 0
-		else if (strLow2.length() == 0) {
+		else if(strLow2.length() == 0) {
 			return strLow1.length();
 		}
 		//if head(a) = head(b)
@@ -33,10 +32,8 @@ public class SpellChecker {
 		}
 		//otherwise
 		else {
-			return 1 + (Math.min(levenshtein(tail(strLow1), strLow2), Math.min(levenshtein(strLow1, tail(strLow2)), levenshtein(tail(strLow1), tail(strLow2)))));
+			return (1 + (Math.min(levenshtein(tail(strLow1), strLow2), Math.min(levenshtein(strLow1, tail(strLow2)), levenshtein(tail(strLow1), tail(strLow2))))));
 		}
-		//System.out.println(strLow1 + " " + strLow2);
-		//return distance;
 	}
 
 	public static String[] readDictionary(String fileName) {
